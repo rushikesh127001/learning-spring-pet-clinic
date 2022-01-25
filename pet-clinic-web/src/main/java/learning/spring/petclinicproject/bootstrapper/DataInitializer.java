@@ -1,8 +1,10 @@
 package learning.spring.petclinicproject.bootstrapper;
 
 import learning.spring.petclinicproject.models.Owner;
+import learning.spring.petclinicproject.models.PetType;
 import learning.spring.petclinicproject.models.Vet;
 import learning.spring.petclinicproject.services.OwnerService;
+import learning.spring.petclinicproject.services.PetTypeService;
 import learning.spring.petclinicproject.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,15 +13,25 @@ import org.springframework.stereotype.Component;
 public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
 
-    public DataInitializer(OwnerService ownerService, VetService vetService) {
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog=new PetType();
+        dog.setPetType("Dog");
+        petTypeService.save(dog);
+
+        PetType cat=new PetType();
+        cat.setPetType("Cat");
+        petTypeService.save(cat);
 
         //adding ownerss
         Owner owner1=new Owner();
