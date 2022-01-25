@@ -22,6 +22,7 @@
     </properties>
     <dependencies>
 
+
     </dependencies>
 
     <build>
@@ -49,6 +50,8 @@
                     <goal>install</goal>
                 </configuration>
             </plugin>
+
+
         </plugins>
     </build>
     <scm><developerConnection>scm:git:git@github.com:rushikesh127001/learning-spring-pet-clinic.git</developerConnection>  <tag>petClinicProject-0.0.1</tag>
